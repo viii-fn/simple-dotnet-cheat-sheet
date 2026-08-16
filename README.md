@@ -76,3 +76,20 @@ public class ProductsController : ControllerBase
 public record ProductDto(int Id, string Name, decimal Price);
 public record CreateProductDto(string Name, decimal Price);
 public record UpdateProductDto(string Name, decimal Price);
+
+```
+
+---
+
+## HTTP Status Code Quick Reference
+
+| Status Code | Helper Method | When to Use in APIs |
+| :--- | :--- | :--- |
+| **200 OK** | `Ok(data)` | Successful `GET` or `PUT` returning updated data |
+| **201 Created** | `CreatedAtAction(...)` | Successful `POST` (resource created) |
+| **204 No Content** | `NoContent()` | Successful `DELETE` or `PUT` (no response body needed) |
+| **400 Bad Request** | `BadRequest(errors)` | Invalid input, missing required fields |
+| **401 Unauthorized** | `Unauthorized()` | Missing or invalid authentication token |
+| **403 Forbidden** | `Forbid()` | Authenticated, but user lacks permissions |
+| **404 Not Found** | `NotFound()` | Requested resource ID does not exist |
+| **500 Internal Error** | Default on unhandled crash | Unexpected server failure |
